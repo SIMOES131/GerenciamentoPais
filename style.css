@@ -1,0 +1,625 @@
+/* Reset e configurações gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  /* FUNDO DEEP OCEAN (O primeiro que sugeri e você gostou) */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* Cabeçalho */
+header {
+  text-align: center;
+  padding: 30px 15px 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(to right, #ffc107, #ff9800);
+  border-radius: 2px;
+}
+
+header img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 20px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+header p {
+  font-size: 1rem;
+  opacity: 0.9;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+/* Grid de cards */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Cards com efeito flutuante - TODOS OS EFEITOS DO PRIMEIRO CSS */
+.card {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  color: #333;
+  border-radius: 20px;
+  padding: 30px 25px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  will-change: transform, box-shadow;
+  outline: 1px solid rgba(255, 255, 255, 0.1);
+  outline-offset: -1px;
+  animation: fadeInUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  opacity: 0;
+}
+
+/* Efeito de brilho no hover */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+/* Sombra projetada */
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 5%;
+  width: 90%;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  filter: blur(10px);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.4s ease;
+  opacity: 0.6;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.15),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 193, 7, 0.5);
+  outline: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card:hover::after {
+  bottom: -18px;
+  filter: blur(15px);
+  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.25);
+  width: 95%;
+  left: 2.5%;
+}
+
+/* Cores específicas para cada card com profundidade extra */
+.card:nth-child(1):hover {
+  border-color: rgba(41, 128, 185, 0.5);
+  box-shadow:
+    0 20px 40px rgba(41, 128, 185, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 0 rgba(41, 128, 185, 0.3);
+}
+
+.card:nth-child(2):hover {
+  border-color: rgba(39, 174, 96, 0.5);
+  box-shadow:
+    0 20px 40px rgba(39, 174, 96, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 0 rgba(39, 174, 96, 0.3);
+}
+
+.card:nth-child(3):hover {
+  border-color: rgba(142, 68, 173, 0.5);
+  box-shadow:
+    0 20px 40px rgba(142, 68, 173, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 0 rgba(142, 68, 173, 0.3);
+}
+
+.card:nth-child(4):hover {
+  border-color: rgba(230, 126, 34, 0.5);
+  box-shadow:
+    0 20px 40px rgba(230, 126, 34, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 0 rgba(230, 126, 34, 0.3);
+}
+
+.card:nth-child(5):hover {
+  border-color: rgba(231, 76, 60, 0.5);
+  box-shadow:
+    0 20px 40px rgba(231, 76, 60, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 0 rgba(231, 76, 60, 0.3);
+}
+
+.card:nth-child(6):hover {
+  border-color: rgba(155, 89, 182, 0.5);
+  box-shadow:
+    0 20px 40px rgba(155, 89, 182, 0.25),
+    0 15px 25px rgba(0, 0, 0, 0.2),
+    inset 0 -3px 0 rgba(155, 89, 182, 0.3);
+}
+
+/* Ícones com profundidade */
+.icone {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 20px;
+  color: #0a3d62;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 61, 98, 0.1),
+    rgba(30, 144, 255, 0.1)
+  );
+  box-shadow:
+    0 8px 15px rgba(0, 0, 0, 0.1),
+    0 2px 5px rgba(0, 0, 0, 0.1),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de brilho interno nos ícones */
+.icone::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.card:hover .icone {
+  transform: scale(1.1) rotate(5deg);
+  color: #1e90ff;
+  box-shadow:
+    0 12px 20px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.card:hover .icone::after {
+  left: 150%;
+}
+
+/* Cores específicas para ícones */
+.card:nth-child(1) .icone {
+  color: #2980b9;
+  background: linear-gradient(
+    135deg,
+    rgba(41, 128, 185, 0.1),
+    rgba(52, 152, 219, 0.1)
+  );
+}
+
+.card:nth-child(2) .icone {
+  color: #27ae60;
+  background: linear-gradient(
+    135deg,
+    rgba(39, 174, 96, 0.1),
+    rgba(46, 204, 113, 0.1)
+  );
+}
+
+.card:nth-child(3) .icone {
+  color: #8e44ad;
+  background: linear-gradient(
+    135deg,
+    rgba(142, 68, 173, 0.1),
+    rgba(155, 89, 182, 0.1)
+  );
+}
+
+.card:nth-child(4) .icone {
+  color: #e67e22;
+  background: linear-gradient(
+    135deg,
+    rgba(230, 126, 34, 0.1),
+    rgba(241, 196, 15, 0.1)
+  );
+}
+
+.card:nth-child(5) .icone {
+  color: #e74c3c;
+  background: linear-gradient(
+    135deg,
+    rgba(231, 76, 60, 0.1),
+    rgba(192, 57, 43, 0.1)
+  );
+}
+
+.card:nth-child(6) .icone {
+  color: #9b59b6;
+  background: linear-gradient(
+    135deg,
+    rgba(155, 89, 182, 0.1),
+    rgba(142, 68, 173, 0.1)
+  );
+}
+
+/* Títulos dos cards */
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #0a3d62;
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+/* Efeito de underline sutil */
+.card h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ffc107, #ff9800);
+  transition: width 0.3s ease;
+}
+
+.card:hover h2 {
+  color: #1e90ff;
+}
+
+.card:hover h2::after {
+  width: 50%;
+}
+
+/* Texto dos cards */
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  font-weight: 300;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  position: relative;
+  z-index: 2;
+}
+
+/* Badge de novo com efeito flutuante */
+.card .novo-badge {
+  background: linear-gradient(to right, #ffc107, #ff9800);
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 5px;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.card:hover .novo-badge {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: auto;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #ffc107, #ff9800);
+  border-radius: 2px;
+}
+
+footer br {
+  display: none;
+}
+
+/* --- RESPONSIVIDADE APRIMORADA --- */
+
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 15px;
+  }
+  .card {
+    padding: 25px 20px;
+  }
+  .icone {
+    font-size: 48px;
+    width: 70px;
+    height: 70px;
+  }
+  .card h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  header {
+    padding: 25px 10px 15px;
+  }
+  header img {
+    width: 100px;
+    height: 100px;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  header p {
+    font-size: 0.95rem;
+  }
+  main {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+  }
+  .card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+  .card::after {
+    bottom: -8px;
+    filter: blur(8px);
+  }
+  .card:hover::after {
+    bottom: -14px;
+    filter: blur(12px);
+  }
+  .icone {
+    font-size: 42px;
+    width: 65px;
+    height: 65px;
+    margin-bottom: 15px;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+  }
+  footer {
+    padding: 20px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  main {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 12px;
+    margin: 0 auto;
+  }
+  header img {
+    width: 90px;
+    height: 90px;
+  }
+  header h1 {
+    font-size: 1.3rem;
+  }
+  header p {
+    font-size: 0.9rem;
+  }
+  .card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+  .card:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+  .card::after {
+    bottom: -6px;
+    filter: blur(6px);
+  }
+  .card:hover::after {
+    bottom: -12px;
+    filter: blur(10px);
+  }
+  .icone {
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+  }
+  footer {
+    padding: 15px;
+    font-size: 0.8rem;
+    border-radius: 12px 12px 0 0;
+  }
+  footer br {
+    display: inline;
+  }
+}
+
+@media (max-width: 360px) {
+  header h1 {
+    font-size: 1rem;
+  }
+  header p {
+    font-size: 0.85rem;
+  }
+  .card {
+    padding: 18px 15px;
+  }
+  .icone {
+    font-size: 36px;
+    width: 55px;
+    height: 55px;
+  }
+  .card h2 {
+    font-size: 1rem;
+  }
+  .card p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Delays da animação */
+.card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 375px) {
+  header h1 {
+    font-size: 5rem;
+  }
+}

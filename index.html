@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centro Educacional de Barra Nova</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonte -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Ícones do Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <img src="escudo.png" alt="Centro Educacional de Barra Nova" />
+      <h1>Centro Educacional de Barra Nova</h1>
+      <p>Ferramentas para Facilitar seu Dia a Dia</p>
+    </header>
+
+    <main>
+      <!-- NOVO CARD: Esporte na Escola -->
+      <a
+        href="https://esporte-cebn.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <span class="icone"><i class="fas fa-futbol"></i></span>
+        <h2>Esporte na Escola</h2>
+        <p>Acompanhe o cronograma das práticas esportivas</p>
+      </a>
+
+      <a
+        href="https://horario-cebn-2026.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <span class="icone"><i class="fas fa-calendar-alt"></i></span>
+        <h2>Calendário Letivo 2026</h2>
+        <p>Calendário e horário dos professores</p>
+      </a>
+
+      <!-- NOVO CARD: Jogos Educativos CEBN -->
+      <a
+        href="https://pagina-de-jogos-cebn.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card"
+      >
+        <span class="icone"><i class="fas fa-gamepad"></i></span>
+        <h2>Jogos Educativos</h2>
+        <p>Aprenda brincando com jogos interativos</p>
+        <!-- <span class="novo-badge">NOVO</span> -->
+      </a>
+    </main>
+
+    <footer>
+      © 2026 – Centro Educacional de Barra Nova
+      <p>Educando para a Vida</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // Funções existentes (mantidas)
+      function downloadPPP(event) {
+        event.preventDefault();
+        alert(
+          "📄 O Projeto Político Pedagógico do CEBN estará disponível para download em breve. Entre em contato com a secretaria escolar para a versão oficial.",
+        );
+      }
+
+      function downloadPlanoAcao(event) {
+        event.preventDefault();
+        alert(
+          "📋 O Plano de Ação da Equipe Gestora 2026 será disponibilizado em PDF em breve. Acompanhe as atualizações!",
+        );
+      }
+    </script>
+  </body>
+</html>
