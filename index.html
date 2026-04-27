@@ -61,6 +61,24 @@
         <p>Aprenda brincando com jogos interativos</p>
         <!-- <span class="novo-badge">NOVO</span> -->
       </a>
+      <!-- NOVO CARD: Plano de Ação da Equipe Gestora -->
+      <a
+        href="#"
+        onclick="downloadPlanoAcao(event)"
+        class="card card-documento"
+      >
+        <span class="icone"><i class="fas fa-clipboard-list"></i></span>
+        <h2>Plano de Ação da Equipe Gestora</h2>
+        <p>Metas, ações e planejamento da gestão</p>
+        <span class="pdf-badge">PDF</span>
+      </a>
+      <!-- NOVO CARD: Projeto Político Pedagógico -->
+      <a href="#" onclick="downloadPPP(event)" class="card card-documento">
+        <span class="icone"><i class="fas fa-book-open"></i></span>
+        <h2>Projeto Político Pedagógico</h2>
+        <p>Documento norteador da prática escolar</p>
+        <span class="pdf-badge">PDF</span>
+      </a>
     </main>
 
     <footer>
@@ -69,21 +87,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-      // Funções existentes (mantidas)
-      function downloadPPP(event) {
-        event.preventDefault();
-        alert(
-          "📄 O Projeto Político Pedagógico do CEBN estará disponível para download em breve. Entre em contato com a secretaria escolar para a versão oficial.",
-        );
-      }
-
-      function downloadPlanoAcao(event) {
-        event.preventDefault();
-        alert(
-          "📋 O Plano de Ação da Equipe Gestora 2026 será disponibilizado em PDF em breve. Acompanhe as atualizações!",
-        );
-      }
-    </script>
   </body>
 </html>
